@@ -13,7 +13,9 @@ body{
 }
 
 a{
+    font-family: 'Mon';
     text-decoration: none;
+    color: black;
 }
 
 section{
@@ -24,11 +26,15 @@ section{
 
 .container{
     margin: 0 auto;
+    padding-top: 15px;
 }
+
+/*ЗАГОЛОВОК*/
 
 .main-nav{
     width: 100%;
     display: flex;
+    margin-bottom: 63px;
 }
 
 .nav{
@@ -38,6 +44,102 @@ section{
     align-items: center;
 }
 
-.logo{
-    width: 40%;
+.logotype{
+    width: 80%;
 }
+
+.text-nav{
+    width: 58%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-nav a{
+    font-size: 0.938rem;
+}
+
+.title-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 19px;
+    background-color: #FFD600;
+    border-radius: 100px;
+    transition: 0.2s;
+}
+
+.button a{
+    font-family: 'Mon';
+    padding-right: 6px;
+    font-size: 0.938rem;
+    background-color: #FFD600;
+}
+
+.button:hover{
+    transform: scale(1.1);
+}
+
+.b-white {
+    padding: 12px 30px;
+    background-color: white;
+    border-radius: 100px;
+    transition: 0.2s;
+}
+
+.b-white:hover{
+    transform: scale(1.1);
+}
+
+/*ОСНОВА*/
+
+.base {
+    position: relative;
+}
+
+.car {
+    position: absolute;
+    top: 246px;
+    /*подогнать*/
+    left: -8px;
+}
+
+.title-stroke {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-title {
+    text-align: center;
+    margin-bottom: 69px;
+}
+
+.big-title h1{
+    font-size: 2.625rem;
+    font-weight: 900;
+}
+
+.big-title p{
+    font-size: 1.688rem;
+    font-weight: 500;
+    padding-top: 27px;
+}
+
+.stroke {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
