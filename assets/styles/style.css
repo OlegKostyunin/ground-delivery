@@ -45,7 +45,7 @@ section{
 }
 
 .logotype{
-    width: 80%;
+    width: 100%;
 }
 
 .text-nav{
@@ -106,9 +106,8 @@ section{
 
 .car {
     position: absolute;
-    top: 246px;
+    top: 148px;
     /*подогнать*/
-    left: -8px;
 }
 
 .title-stroke {
@@ -136,10 +135,38 @@ section{
 }
 
 .stroke {
-    width: 50%;
+    width: 54%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    border-radius: 100px;
+    padding: 16px 16px;
+    box-shadow: 1px 1px 20px rgba(255, 214, 0, 0.34);
 }
 
+.block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.icon{
+    padding-right: 10px;
+}
+
+.grey-around {
+    border: 1px solid #a8a7a7;
+    border-radius: 50px;
+    padding: 11px;
+}
+
+.line {
+    width: 1px;
+    height: 37px;
+    background-color: #a8a7a7;
+}
+
+.block .button{
+    padding: 23px 0px;
+}
