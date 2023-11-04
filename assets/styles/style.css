@@ -101,12 +101,20 @@ section{
 /*ОСНОВА*/
 
 .base {
-    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
 }
 
 .car {
-    position: absolute;
-    top: 148px;
+    width: 1415px;
+    height: 541px;
+    position: relative;
+    bottom: 150px;
+    z-index: -1;
     /*подогнать*/
 }
 
