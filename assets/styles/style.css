@@ -107,6 +107,7 @@ section{
     justify-content: center;
     align-items: center;
     position: absolute;
+    font-family: 'Mon';
 }
 
 .car {
