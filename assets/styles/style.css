@@ -111,12 +111,10 @@ section{
 }
 
 .car {
-    width: 1415px;
-    height: 541px;
+    width: 100%;
     position: relative;
     bottom: 150px;
     z-index: -1;
-    /*подогнать*/
 }
 
 .title-stroke {
