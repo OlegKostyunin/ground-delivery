@@ -1,0 +1,937 @@
+@import url(../fonts/font.css);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.big_con {
+    background-color: transparent;
+    height: 100vh; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    background-image: url(https://plus.unsplash.com/premium_photo-1661962309696-c429126b237e?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); 
+    background-size: cover; 
+    background-position: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgba(187, 206, 222, 0.2);
+    font-family: 'Mon', sans-serif;
+    width: 100%;
+}
+
+a {
+    font-family: 'Mon';
+    text-decoration: none;
+    color: black;
+}
+
+.big_container {
+    width: 1270px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 170px;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.078);
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 12px;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/*ЗАГОЛОВОК*/
+
+.nav {
+    width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logotype {
+    width: 90%;
+}
+
+.text-nav {
+    width: 58%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-nav a {
+    font-size: 0.938rem;
+}
+
+.title-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description p {
+    font-size: 0.75rem;
+    color: #6a6a6a;
+    line-height: 1.5;
+  }
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+    background-color: #FFD600;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Mon';
+}
+
+
+.button a,
+.button p {
+    font-family: 'Mon';
+    font-size: 0.938rem;
+    font-weight: 500;
+}
+
+.stroke {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 100px;
+    padding: 8px 8px 8px 8px;
+    border: 1px solid #e2e2e2;
+  } 
+
+.button_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+    background-color: #FFD600;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #moveButton {
+    position: relative;
+    left: 0;
+    transition: left 0.9s ease;
+  }
+  
+.text_bron {
+    font-size: 1.05rem;
+    font-family: "Mon";
+    padding-right: 40px;
+    color: #949494;
+}
+
+.button:hover {
+    background-color: #ffd5006c;
+}
+
+
+/* modal */
+#tariff {
+    width: 210px;
+    padding: 15px;
+    font-family: 'Mon', sans-serif;
+    font-size: 14px;
+    color: #6a6a6a;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    font-weight: 100;
+
+}
+
+form {
+    display: flex;
+    gap: 30px;
+}
+
+form input {
+    width: 280px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #3333335d;
+    font-family: 'Mon', sans-serif;
+}
+
+input::placeholder {
+    font-family: 'Mon', sans-serif;
+}
+
+.modalBackdrop {
+    /*тень сзади окна*/
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Полупрозрачный черный цвет */
+    z-index: 999;
+    /* Положим это подложку поверх всего остального контента */
+}
+
+.modalWin {
+    display: none;
+    /* По умолчанию скрыто */
+    position: fixed;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Положение по центру экрана */
+    background-color: white;
+    /* Полупрозрачный фон */
+    overflow: auto;
+    width: 750px;
+    padding: 50px;
+    /* Максимальная ширина модального окна */
+    z-index: 1000;
+    /* модальное окно поверх подложки */
+    box-shadow: rgba(0, 0, 0, 0.5);
+    /* тень */
+}
+
+.modal_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+
+}
+
+.modal_content .input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e3e3e3;
+}
+
+.closeWin {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+select {
+    padding: 10px 100px 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #e3e3e3;
+    color: grey;
+    font-family: 'Mon', sans-serif;
+}
+
+.btn_nav {
+    width: 116px;
+    padding: 12px;
+}
+
+.b-white {
+    padding: 12px 30px;
+    width: 110px;
+    background-color: white;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+.b-white_user {
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+}
+.b-white_user img{
+    width: 110%;
+}
+.b-white:hover {
+    background-color: #ffd5006c;
+}
+.b-white_user:hover {
+    background-color: #ffd5006c;
+}
+
+/*ОСНОВА*/
+
+.bg_img {
+    width: 100%;
+    height: 530px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 100px 0;
+}
+
+.car {
+    width: 70%;
+    position: relative;
+    bottom: 150px;
+    z-index: -1;
+}
+
+.title-stroke {
+    position: absolute;
+    width: 788px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -132px;
+    left: 266px;
+  }
+
+.big-title {
+    text-align: center;
+    margin-bottom: 69px;
+}
+
+.big-title h1 {
+    font-size: 2.625rem;
+    font-weight: 900;
+}
+
+.big-title p {
+    font-size: 1.688rem;
+    font-weight: 500;
+    padding-top: 27px;
+}
+
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.grey-around {
+    width: 36px;
+    border: 1px solid #a8a7a7;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.line_s {
+    width: 1px;
+    height: 37px;
+    background-color: #a8a7a7;
+}
+
+.block .button {
+    padding: 23px;
+}
+
+/*УСЛУГИ*/
+
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*селект услуг*/
+.services_container .cart {
+    display: none;
+}
+
+.services_container .cart.active {
+    display: block;
+}
+
+.title-service {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.title-service h1 {
+    font-size: 1.875rem;
+    font-weight: 900;
+    text-align: start;
+}
+
+.services_container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.three_carts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.cart {
+    width: 285px;
+    height: 410px;
+    border-radius: 20px;
+    border: 1px solid #DFDFDF;
+    transition: all 0.3s ease;
+}
+
+.cart:hover {
+    transform: scale(1.05);
+  }
+
+.cart img {
+    width: 100%;
+    border-radius: 15px;
+    padding-bottom: 20px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 0px 20px;
+    gap: 13px;
+}
+
+.description h1 {
+    font-size: 0.875rem;
+    padding-bottom: 6px;
+}
+
+.description p {
+    font-size: 0.75rem;
+    color: #6A6A6A;
+
+}
+
+.t-small {
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+.block_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.block_adrs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.adrs {
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 33px;
+    height: 33px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.arrow .text-icon {
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
+    gap: 10px; 
+}
+
+.photo {
+    flex: 0 0 calc(50% - 5px); 
+    max-width: 630px;
+   
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.block_adrs .is-active {
+    background-color: #ffd500a5;
+}
+
+.content_map {
+    display: none;
+}
+
+.map .is-active {
+    display: block;
+}
+
+footer .block {
+    gap: 20px;
+}
+
+/*авторизация*/
+
+.block_auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 80px 170px;
+    gap: 20px;
+    border: 1px solid #c9c8c895;
+    border-radius: 10px;
+  }
+  
+  .enter {
+    min-width: 320px;
+    padding: 11px;
+    border: 1px solid #c9c8c8;
+    border-radius: 10px;
+    font-family: "Mon", sans-serif;
+  }
+  
+  .p14 a {
+    color: black;
+  }
+  
+  .block_auth .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #ffd500a5;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+  }
+
+  /*форма заявки*/
+  .form-container {
+    width: 100%; 
+    margin: 0 auto; 
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 15px; 
+    border: 0.8px solid #b0b0b05a;
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: scale(1.05); 
+}
+
+.form{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.title-text {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.yellow-text::before {
+    content: attr(data-before);
+    color: #fad000;
+}
+.black-text {
+    color: black;
+}
+
+.title-text h1 {
+    font-size: 24px; 
+    font-weight: 800; 
+    color: black; 
+}
+
+.form-group {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 8px; 
+    color: rgba(0, 0, 0, 0.705); 
+    font-size: 14px; 
+}
+
+.group {
+    display: flex; 
+    align-items: center; 
+    
+}
+
+.group input[type="text"] {
+    flex: 1; 
+    padding: 10px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    min-height: 50px;
+}
+
+.group button {
+    padding: 10px 20px; 
+    font-size: 15px; 
+    background-color: #FFD600; 
+    color: black; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-left: 10px; 
+    font-weight: 500;
+    min-height: 50px;
+}
+
+.form-note {
+    color: rgba(0, 0, 0, 0.584); 
+    font-size: 14px; 
+    text-align: center; 
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* Popup form styles */
+
+.popup {
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    overflow: auto; 
+}
+
+/* Стили для контейнера формы всплывающего окна */
+.popup-form {
+    background-color: #fff; 
+    width: 80%; 
+    max-width: 600px;
+    max-height: 530px; 
+    margin: 50px auto; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+/* Закрыть кнопка */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Стили для формы внутри всплывающего окна */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для каждой группы формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Стили для полей ввода */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Стили для кнопки отправки формы */
+button[type="submit"] {
+    background-color: #FFD600;
+    color: #000000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 700;
+    font-family: 'Mon';
+}
+
+button[type="submit"]:hover {
+    background-color: #ffd500d7;
+}
+
+/* Примечание под формой */
+.form-note {
+    font-size: 14px;
+    color: #666;
+}
+
+.reviews-container {
+    max-width: 100%; /* Ширина контейнера отзывов */
+    margin: 0 auto; /* Центрирование контейнера */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Стили для отзыва */
+.review {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 7px;
+    background-color: #fff;
+}
+
+.review h3 {
+    margin-top: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.review p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+#add-review-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#add-review-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+#add-review-form input[type="text"],
+#add-review-form textarea,
+#add-review-form button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    
+}
+
+#add-review-form textarea {
+    resize: vertical; 
+    background-color: white;
+}
+
+#add-review-form button {
+    background-color: #FFD600;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    min-height: 50px;
+    font-family: 'Mon';
+    font-weight: 500;
+}
+
+#add-review-form button:hover {
+    background-color: #ffd500d7;
+}
+
+.block_user {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cacaca65;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    gap: 40px;
+    padding: 30px 0;
+    margin-right: 50px;
+    min-height: 418px;
+  }
+  
+  .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .user h3 {
+    padding-bottom: 5px;
+  }
+  
+  .avatar {
+    width: 154px;
+    height: 154px;
+    border-radius: 100px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+  
+  .wallet {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .block_user .button {
+    border-radius: 5px;
+    background-color: rgba(0, 208, 83, 0.64);
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-top: 45px;
+  }
+  
+  .wallet .button a {
+    color: white;
+  }
+  
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .profile label {
+    font-family: "Mon", sans-serif;
+    font-weight: 600;
+  }
+  
+  .profile input,
+  textarea {
+    background-color: rgba(217, 217, 217, 0.12);
+  }
+  
+  .reg-form {
+    flex-direction: column;
+  }
+  
+  .reg-container {
+    width: 700px;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    margin: auto;
+  }
+  
+  .item {
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 30px;
+  }
+
+  .avatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.avatar label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar label svg {
+    fill: #000;
+}
+
+.avatar label input {
+    display: none;
+}
+
+.remove-avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.remove-avatar:hover {
+    color: #cc0000;
+}
+  
